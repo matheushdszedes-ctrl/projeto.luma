@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guitar – Galeria</title>
+    <script src="../js/tema.js"></script>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/customizacoes.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/Gemini_Generated_Image_kw99mhkw99mhkw99-removebg-preview.png" alt="Lions Guitarrs" class="logo-img">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="NossasCustomizacoes.html" class="active">Galeria</a></li>
+                <li><a href="loja.html">Produtos</a></li>
+                <li><a href="texte.html">Custom</a></li>
+                <li><a href="favoritos.html">Favoritos <span id="fav-badge" class="cart-badge">0</span></a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html">Carrinho <span id="cart-badge" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="cabecalho-pagina">
+            <span class="eyebrow">Galeria</span>
+            <h1>Inspire-se e crie a sua</h1>
+            <p>Exemplos montados pela nossa equipe e as guitarras que você salvou. Abra qualquer uma no personalizador e ajuste do seu jeito.</p>
+        </section>
+
+        <div class="faixa-info" role="note">
+            <strong>Comunidade ainda não disponível.</strong> Não há guitarras de outros usuários nem curtidas globais: isso depende de um servidor. Por enquanto, “curtir” salva nos seus favoritos e “compartilhar” gera um link real com a configuração. Os preços são estimativas de demonstração.
+        </div>
+
+        <div class="filtros-chips" id="chips" role="group" aria-label="Filtrar guitarras"></div>
+
+        <section class="galeria" id="galeria" aria-live="polite"></section>
+
+        <section class="publicar-box">
+            <div>
+                <h2>Publicar na comunidade</h2>
+                <p id="notaPublicar"></p>
+            </div>
+            <button type="button" class="btn" id="btnPublicar" disabled>Publicar uma guitarra</button>
+        </section>
+
+        <section class="cta-custom">
+            <h2>Quer a sua própria?</h2>
+            <p>Escolha formato, madeira, cor e captadores e veja o orçamento em tempo real.</p>
+            <a href="texte.html" class="btn">Montar a minha guitarra</a>
+        </section>
+
+    </main>
+
+    <script src="../js/comum.js"></script>
+    <script src="../js/pecas.js"></script>
+    <script src="../js/guitarra.js"></script>
+    <script src="../js/projetos.js"></script>
+    <script src="../js/comunidade.js"></script>
+    <script src="../js/customizacoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guitar – Login</title>
+    <script src="../js/tema.js"></script>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/Gemini_Generated_Image_kw99mhkw99mhkw99-removebg-preview.png" alt="Lions Guitarrs" class="logo-img">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="NossasCustomizacoes.html">Galeria</a></li>
+                <li><a href="loja.html">Produtos</a></li>
+                <li><a href="texte.html">Custom</a></li>
+                <li><a href="favoritos.html">Favoritos <span id="fav-badge" class="cart-badge">0</span></a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+                <li><a href="carrinho.html">Carrinho <span id="cart-badge" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="login-pagina">
+        <section class="login-caixa">
+
+            <div class="login-topo">
+                <div class="login-icone">S</div>
+                <h1>Entrar</h1>
+                <p>Acesse sua conta Style Guitar.</p>
+            </div>
+
+            <div class="form-aviso" id="form-aviso" role="alert"></div>
+
+            <form class="auth-form" id="form-login" novalidate>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="voce@email.com" autocomplete="email">
+                    <span class="campo-msg"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <div class="campo-senha">
+                        <input type="password" id="senha" name="senha" placeholder="Sua senha" autocomplete="current-password">
+                        <button type="button" class="ver-senha" aria-label="Mostrar senha">Ver</button>
+                    </div>
+                    <span class="campo-msg"></span>
+                </div>
+
+                <div class="login-opcoes">
+                    <label class="lembrar"><input type="checkbox" id="lembrar"> Lembrar de mim</label>
+                    <a href="#" class="esqueci">Esqueci a senha</a>
+                </div>
+
+                <button type="submit" class="btn btn-grande">Entrar</button>
+            </form>
+
+            <div class="divisor">ou</div>
+
+            <div class="login-social">
+                <button type="button" class="btn btn-claro">Continuar com Google</button>
+            </div>
+
+            <p class="auth-troca">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+
+        </section>
+    </main>
+
+    <script src="../js/comum.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+</html>

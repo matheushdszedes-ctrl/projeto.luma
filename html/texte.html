@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guitar – Monte a sua guitarra</title>
+    <script src="../js/tema.js"></script>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="tema-escuro">
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/Gemini_Generated_Image_kw99mhkw99mhkw99-removebg-preview.png" alt="Lions Guitarrs" class="logo-img">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="NossasCustomizacoes.html">Galeria</a></li>
+                <li><a href="loja.html">Produtos</a></li>
+                <li><a href="texte.html" class="active">Custom</a></li>
+                <li><a href="favoritos.html">Favoritos <span id="fav-badge" class="cart-badge">0</span></a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html">Carrinho <span id="cart-badge" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="faixa-demo" role="note">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        Os preços do personalizador são <strong>valores demonstrativos</strong> e não representam preços reais.
+    </div>
+
+    <main class="custom-app">
+
+        <section class="custom-cabecalho">
+            <span class="eyebrow">Personalizador</span>
+            <h1>Monte a sua guitarra.</h1>
+            <p>Escolha cada peça e veja a guitarra mudar na hora. O orçamento é atualizado a cada escolha e você pode salvar, compartilhar e baixar a sua criação.</p>
+        </section>
+
+        <div class="custom-grid">
+
+            <!-- COLUNA ESQUERDA: visualização -->
+            <aside class="coluna-esq" aria-label="Pré-visualização da guitarra">
+
+                <div class="projeto-info">
+                    <div class="nome-projeto">
+                        <label class="sr-only" for="nomeProjeto">Nome do projeto</label>
+                        <input type="text" id="nomeProjeto" maxlength="40" placeholder="Dê um nome à sua guitarra" autocomplete="off">
+                    </div>
+                    <span class="estado" id="estadoProjeto" aria-live="polite">Novo projeto</span>
+                </div>
+
+                <div class="fixo">
+                    <div class="palco-visual" id="palco">
+                        <svg id="svgGuitarra" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pré-visualização da guitarra personalizada"></svg>
+
+                        <div class="zoom">
+                            <button type="button" id="zoomMais" aria-label="Aproximar"><i class="fa-solid fa-plus"></i></button>
+                            <button type="button" id="zoomMenos" aria-label="Afastar"><i class="fa-solid fa-minus"></i></button>
+                            <button type="button" id="zoomReset" aria-label="Ver a guitarra inteira"><i class="fa-solid fa-expand"></i></button>
+                        </div>
+                        <span class="dica-zoom">Arraste para mover · Ctrl + rolagem para zoom</span>
+                    </div>
+
+                    <div class="vistas" role="group" aria-label="Partes da guitarra">
+                        <button type="button" class="vista ativa" data-vista="inteira">Inteira</button>
+                        <button type="button" class="vista" data-vista="corpo">Corpo</button>
+                        <button type="button" class="vista" data-vista="captadores">Captadores</button>
+                        <button type="button" class="vista" data-vista="braco">Braço</button>
+                        <button type="button" class="vista" data-vista="cabeca">Cabeça</button>
+                    </div>
+
+                    <div class="barra-total">
+                        <div>
+                            <small>Preço final</small>
+                            <strong id="totalTopo">R$ 0</strong>
+                        </div>
+                        <button type="button" class="btn" id="btnCarrinho"><i class="fa-solid fa-cart-shopping"></i> Adicionar ao carrinho</button>
+                    </div>
+                </div>
+
+                <div class="acoes">
+                    <button type="button" class="btn" id="btnSalvar"><i class="fa-regular fa-floppy-disk"></i> Salvar projeto</button>
+                    <button type="button" class="btn btn-claro" id="btnFavorito" data-fav-id="" aria-pressed="false">♡ Favoritar</button>
+                    <button type="button" class="btn btn-claro" id="btnLink"><i class="fa-solid fa-link"></i> Link</button>
+                    <button type="button" class="btn btn-claro" id="btnImagem"><i class="fa-solid fa-image"></i> Imagem</button>
+                    <button type="button" class="btn btn-claro" id="btnFicha"><i class="fa-solid fa-file-lines"></i> Ficha técnica</button>
+                    <button type="button" class="btn btn-claro" id="btnNovo"><i class="fa-solid fa-rotate-left"></i> Novo</button>
+                </div>
+            </aside>
+
+            <!-- COLUNA DIREITA: peças, orçamento e projetos -->
+            <section class="painel" aria-label="Peças e orçamento">
+                <div class="abas" id="abas" role="tablist" aria-label="Categorias de peças"></div>
+                <div class="grupos" id="grupos" role="tabpanel"></div>
+                <section class="orcamento" id="orcamento" aria-live="polite"></section>
+                <section class="projetos" id="projetos"></section>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- janelas (compartilhar, ficha técnica, confirmações) -->
+    <div class="janela" id="janela" aria-hidden="true">
+        <div class="janela-caixa" id="janelaCaixa" role="dialog" aria-modal="true"></div>
+    </div>
+
+    <script src="../js/comum.js"></script>
+    <script src="../js/pecas.js"></script>
+    <script src="../js/guitarra.js"></script>
+    <script src="../js/projetos.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+</html>

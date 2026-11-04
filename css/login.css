@@ -1,0 +1,101 @@
+/* ==========================================================
+   LOGIN (login.html) – css/login.css
+   Estrutura esperada no html:
+   .login-pagina > .login-caixa
+      .login-topo (.login-icone, h1, p)
+      form.auth-form
+         .campo (label, input, .campo-msg)
+         .campo-senha (input + button.ver-senha)
+         .login-opcoes (label.lembrar + a.esqueci)
+         button.btn.btn-grande
+      .divisor ("ou")
+      .login-social (button.btn-claro)
+      .auth-troca (link para cadastro)
+   ========================================================== */
+
+.login-pagina {
+    min-height: calc(100vh - 56px);
+    display: grid; place-items: center;
+    padding: 32px 16px 60px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(181, 18, 27, .10), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(181, 18, 27, .12), transparent 45%),
+        var(--bg);
+}
+
+.login-caixa {
+    width: min(420px, 100%);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow: 0 16px 40px rgba(181, 18, 27, .16);
+    animation: entrar .4s ease both;
+}
+
+.login-topo { text-align: center; margin-bottom: 26px; }
+.login-icone {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--red); color: #fff;
+    display: grid; place-items: center;
+    font-family: var(--font-title); font-size: 24px;
+    margin: 0 auto 14px;
+}
+.login-topo h1 { font-size: 32px; margin-bottom: 4px; }
+.login-topo p { font-size: 12px; color: var(--muted); }
+
+/* ===== SENHA ===== */
+.campo-senha { position: relative; }
+.campo-senha input { padding-right: 56px; }
+.ver-senha {
+    position: absolute; right: 12px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    font-size: 11px; font-weight: 600; color: var(--red-hi);
+}
+
+/* ===== LEMBRAR / ESQUECI ===== */
+.login-opcoes {
+    display: flex; justify-content: space-between; align-items: center;
+    margin: -4px 0 20px;
+    font-size: 11px;
+}
+.lembrar { display: flex; align-items: center; gap: 6px; color: var(--muted); cursor: pointer; }
+.lembrar input { accent-color: var(--red-hi); }
+.esqueci { color: var(--red-hi); font-weight: 600; text-decoration: underline; }
+
+.auth-form .btn { width: 100%; padding: 14px; font-size: 14px; }
+
+/* ===== DIVISOR ===== */
+.divisor {
+    display: flex; align-items: center; gap: 12px;
+    margin: 22px 0;
+    font-size: 11px; color: var(--muted);
+}
+.divisor::before, .divisor::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.login-social { display: grid; gap: 10px; }
+.login-social .btn-claro { width: 100%; padding: 12px; font-size: 13px; }
+
+.auth-troca { margin-top: 22px; text-align: center; font-size: 12px; color: var(--muted); }
+.auth-troca a { color: var(--red-hi); font-weight: 600; text-decoration: underline; }
+
+/* ===== MENSAGEM GERAL ===== */
+.form-aviso {
+    display: none;
+    margin-bottom: 16px; padding: 12px 14px;
+    border-radius: 10px; font-size: 12px; font-weight: 500;
+}
+.form-aviso.visivel { display: block; }
+.form-aviso.erro { background: var(--erro-bg); color: var(--erro-ink); border: 1px solid var(--erro-borda); }
+.form-aviso.ok { background: var(--ok-bg); color: var(--ok); border: 1px solid var(--ok-borda); }
+
+/* tremida quando o login falha */
+.login-caixa.tremer { animation: tremer .4s; }
+@keyframes tremer {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+@media (max-width: 480px) { .login-caixa { padding: 28px 20px; } }

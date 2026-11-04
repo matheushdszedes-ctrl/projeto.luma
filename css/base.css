@@ -1,0 +1,291 @@
+/* ==========================================================
+   BASE – usado em TODAS as páginas (carregue antes do css da página)
+   <link rel="stylesheet" href="../css/base.css">
+   Contém: cores, reset, menu, botões, formulários, aviso e modal
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- TEMA CLARO (padrão do site original) ---------- */
+:root, :root[data-tema="claro"] {
+    --red: #b5121b;
+    --red-dark: #7d0d14;
+    --red-hi: #b5121b;
+    --gold: #9a6a10;
+    --bg: #fde8e8;
+    --surface: #fff7f6;
+    --card: #fff;
+    --card-2: #fff1f0;
+    --ink: #2a0f12;
+    --muted: #6f5b5d;
+    --line: #f3cfcf;
+    --line-2: #e8b9b9;
+    --line-3: #d99a9a;
+    --hover-bg: #fbe3e1;
+    --ok: #1f7a3d;
+    --ok-bg: #e6f5ea;
+    --ok-borda: #a9d9b8;
+    --erro-bg: #fdeaea;
+    --erro-ink: #a01820;
+    --erro-borda: #f0b4b8;
+    --aviso-bg: #fff4dc;
+    --aviso-borda: #e3c27a;
+    --aviso-ink: #7a5410;
+    --aviso-strong: #5e3f06;
+    --chip-overlay: rgba(255, 255, 255, .88);
+    --mudo-2: #c9a9ac;
+    --dis-bg: #ecd5d5;
+    --dis-ink: #a58d90;
+    --veu: rgba(42, 15, 18, .5);
+    --toast-acao: #ff9ea3;
+    --foto-1: #fff6f5;
+    --foto-2: #f8dcdc;
+    --palco-bg: #fbeceb;
+    --font-title: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --radius: 14px;
+    --shadow: 0 2px 8px rgba(181, 18, 27, .07);
+    color-scheme: light;
+}
+
+/* ---------- TEMA ESCURO ---------- */
+:root[data-tema="escuro"] {
+    --red-hi: #ff5a63;
+    --gold: #d9a441;
+    --bg: #0f0b0c;
+    --surface: #171214;
+    --card: #1d1719;
+    --card-2: #251c1f;
+    --ink: #f4ecec;
+    --muted: #a8999b;
+    --line: #33272b;
+    --line-2: #43343a;
+    --line-3: #5a454c;
+    --hover-bg: #33262b;
+    --ok: #4fbf75;
+    --ok-bg: #12301f;
+    --ok-borda: #1f5a37;
+    --erro-bg: #3a1216;
+    --erro-ink: #ffb3b8;
+    --erro-borda: #6b2229;
+    --aviso-bg: #1f160c;
+    --aviso-borda: #5a4318;
+    --aviso-ink: #e6c993;
+    --aviso-strong: #f0c77a;
+    --chip-overlay: rgba(15, 11, 12, .75);
+    --mudo-2: #5a4a4e;
+    --dis-bg: #3a2c30;
+    --dis-ink: #8a7a7e;
+    --veu: rgba(5, 3, 4, .72);
+    --toast-acao: #b5121b;
+    --foto-1: #2c2024;
+    --foto-2: #150f11;
+    --palco-bg: #130e10;
+    --shadow: 0 2px 10px rgba(0, 0, 0, .35);
+    color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+[hidden] { display: none !important; }
+
+/* ===== MENU ===== */
+.navbar {
+    background: var(--red);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 32px;
+    height: 56px;
+    position: sticky; top: 0; z-index: 50;
+}
+
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo-img { height: 40px; width: auto; }
+
+.nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+
+.nav-links a {
+    display: flex; align-items: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background .2s;
+}
+.nav-links a:hover { background: rgba(255, 255, 255, .18); }
+.nav-links a.active { background: #fff; color: var(--red); font-weight: 600; }
+
+.cart-badge, .cart-count {
+    display: none;
+    margin-left: 6px;
+    min-width: 16px; height: 16px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: #fff; color: var(--red);
+    font-size: 10px; font-weight: 700;
+    line-height: 16px; text-align: center;
+}
+.cart-badge.visivel, .cart-count.visivel { display: inline-block; }
+.nav-links a.active .cart-badge,
+.nav-links a.active .cart-count { background: var(--red); color: #fff; }
+
+/* ===== ÍCONES DO MENU (casa, perfil, carrinho) ===== */
+.nav-links a .ico { width: 17px; height: 17px; margin-right: 6px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-links a .ico .cheio { fill: currentColor; stroke: none; }
+
+/* ===== BOTÃO DE TEMA (sol = claro, lua = escuro) ===== */
+.tema-toggle {
+    display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
+    background: rgba(0, 0, 0, .22); border: 1px solid rgba(255, 255, 255, .28);
+    border-radius: 999px; padding: 3px; color: #fff;
+}
+.tema-toggle button {
+    width: 30px; height: 26px; border: none; border-radius: 999px;
+    background: transparent; color: rgba(255, 255, 255, .75);
+    display: grid; place-items: center; transition: background .2s, color .2s;
+}
+.tema-toggle button:hover { color: #fff; }
+.tema-toggle button[aria-pressed="true"] { background: #fff; color: var(--red); }
+.tema-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ===== CONTEÚDO ===== */
+.main-content { max-width: 1100px; margin: 0 auto; padding: 24px 28px 60px; }
+
+.eyebrow {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .6px; text-transform: uppercase;
+    color: var(--red-hi);
+}
+
+h1, h2, h3 { font-family: var(--font-title); font-weight: 400; }
+
+/* ===== BOTÕES ===== */
+.btn {
+    display: inline-block;
+    background: var(--red); color: #fff;
+    border: none; border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 12px; font-weight: 600;
+    text-align: center;
+    transition: background .2s, transform .1s;
+}
+.btn:hover:not(:disabled) { background: var(--red-dark); }
+.btn:active:not(:disabled) { transform: scale(.98); }
+.btn:disabled { background: #d9b9b9; cursor: not-allowed; }
+.btn.added { background: var(--ok) !important; }
+.btn-grande { width: 100%; padding: 14px; font-size: 14px; }
+.btn-claro { background: var(--card-2); color: var(--ink); border: 1px solid #43343a; }
+.btn-claro:hover:not(:disabled) { background: #33262b; border-color: #5a454c; }
+
+/* ===== FORMULÁRIOS ===== */
+.campo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.campo label { font-size: 12px; font-weight: 600; }
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    padding: 11px 14px;
+    font-family: inherit; font-size: 13px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(181, 18, 27, .12); }
+
+.campo.erro input, .campo.erro select { border-color: var(--red); }
+.campo.ok input { border-color: var(--ok); }
+.campo-msg { min-height: 14px; font-size: 11px; color: var(--red); }
+.campo.ok .campo-msg { color: var(--ok); }
+
+/* ===== AVISO (toast) ===== */
+.toast {
+    position: fixed; left: 50%; bottom: 24px;
+    transform: translate(-50%, 20px);
+    display: flex; align-items: center; gap: 14px;
+    background: var(--ink); color: var(--bg);
+    padding: 12px 20px; border-radius: 999px;
+    font-size: 12px; font-weight: 500;
+    opacity: 0; pointer-events: none;
+    transition: all .3s;
+    z-index: 110;
+}
+.toast.visivel { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast button {
+    background: none; border: none;
+    color: var(--toast-acao); font-weight: 700; font-size: 12px;
+    text-decoration: underline;
+}
+
+/* ===== ANIMAÇÃO PADRÃO ===== */
+@keyframes entrar {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVO (menu) ===== */
+@media (max-width: 620px) {
+    .navbar { padding: 8px 14px; height: auto; flex-wrap: wrap; justify-content: center; }
+    .nav-links { justify-content: center; }
+    .nav-links a { padding: 5px 9px; font-size: 11px; }
+    .nav-links a .ico { margin-right: 4px; width: 15px; height: 15px; }
+    .main-content { padding: 20px 14px 40px; }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ===== CORAÇÃO (favoritar) ===== */
+.fav-btn {
+    position: absolute; top: 10px; right: 10px; z-index: 3;
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--line-2);
+    background: var(--chip-overlay); color: var(--ink);
+    font-size: 18px; line-height: 1;
+    display: grid; place-items: center;
+    transition: background .2s, transform .15s, color .2s, border-color .2s;
+}
+.fav-btn:hover { background: var(--red); border-color: var(--red); transform: scale(1.08); }
+.fav-btn.ligado { color: var(--red-hi); border-color: var(--red-hi); }
+.fav-btn.ligado:hover { color: #fff; }
+.fav-btn { box-shadow: 0 1px 4px rgba(0, 0, 0, .15); }
+
+/* ===== CABEÇALHO DE PÁGINA E CHIPS (várias páginas) ===== */
+.cabecalho-pagina { text-align: center; max-width: 620px; margin: 24px auto 32px; }
+.cabecalho-pagina h1 { font-size: 46px; line-height: 1.05; margin: 10px 0 12px; }
+.cabecalho-pagina p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ===== CHIPS DE FILTRO ===== */
+.filtros-chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+
+.chip {
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-size: 12px; font-weight: 500;
+    transition: all .2s;
+}
+.chip:hover { border-color: var(--red-hi); color: var(--red-hi); }
+.chip.ativo { background: var(--red); border-color: var(--red); color: #fff; }
+.chip .n { opacity: .7; margin-left: 4px; font-weight: 400; }

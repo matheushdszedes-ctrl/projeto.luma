@@ -1,0 +1,219 @@
+/* ==========================================================
+   LOJA (Produtos) – css/loja.css
+   Catálogo com filtro lateral, ordenação, cards e gaveta do carrinho.
+   Combina com o html/script.js da loja (ids: limpar, aplicar, minimo,
+   maximo, precoRange, resultado, contagem, ordenar, abrirCarrinho, cartCount)
+   ========================================================== */
+
+/* ===== HERO ===== */
+.hero {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 24px; margin: 20px 0 32px;
+}
+.hero h1 { font-size: 48px; line-height: 1.05; max-width: 380px; margin: 10px 0 14px; }
+.hero p { font-size: 13px; color: var(--muted); max-width: 360px; line-height: 1.5; }
+.hero-meta { text-align: right; font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+/* ===== LAYOUT ===== */
+.layout { display: grid; grid-template-columns: 220px 1fr; gap: 20px; align-items: start; }
+
+/* ===== FILTRO ===== */
+.filtro {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px 14px 18px;
+    font-size: 11px;
+    box-shadow: 0 2px 8px rgba(181, 18, 27, .06);
+    position: sticky; top: 72px;
+}
+
+.filtro .topo {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 12px; border-bottom: 1px solid var(--line);
+}
+.filtro h2 { font-size: 18px; }
+.filtro #limpar {
+    background: none; border: none;
+    color: var(--red-hi); font-weight: 700; font-size: 10px; text-decoration: underline;
+}
+
+.grupo { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.grupo:last-of-type { border-bottom: none; }
+.grupo h3 { font-size: 13px; margin-bottom: 10px; }
+
+.grupo label {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 7px; cursor: pointer;
+}
+
+.grupo input[type="checkbox"] {
+    appearance: none;
+    width: 12px; height: 12px;
+    border: 1px solid #d9b9b9; border-radius: 3px;
+    background: var(--card);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+}
+.grupo input[type="checkbox"]:checked { background: var(--red); border-color: var(--red); }
+.grupo input[type="checkbox"]:checked::after { content: "✓"; color: #fff; font-size: 9px; line-height: 1; }
+
+.todos {
+    display: inline-block; margin-bottom: 10px;
+    padding: 4px 12px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card-2); color: var(--ink);
+    font-size: 10px; font-weight: 600;
+    transition: all .2s;
+}
+.todos:hover { border-color: var(--red-hi); }
+.todos.ativo { background: var(--red); border-color: var(--red); color: #fff; }
+
+.precos { display: flex; gap: 6px; margin-bottom: 10px; }
+.precos input {
+    width: 100%;
+    border: 1px solid var(--line); border-radius: 6px;
+    padding: 6px 8px; font-size: 10px; background: var(--card);
+}
+#precoRange { width: 100%; accent-color: var(--red-hi); }
+
+#aplicar {
+    width: 100%; margin-top: 8px;
+    background: var(--red); color: #fff;
+    border: none; border-radius: 999px;
+    padding: 9px; font-size: 11px; font-weight: 600;
+}
+#aplicar:hover { background: var(--red-dark); }
+#resultado { margin-top: 8px; font-size: 10px; color: var(--muted); text-align: center; }
+
+/* ===== PRODUTOS ===== */
+.produtos-topo {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px; font-size: 11px; color: var(--muted);
+}
+.ordenar {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 12px; color: var(--ink);
+}
+.ordenar select {
+    border: none; background: transparent;
+    font: inherit; font-weight: 700; color: var(--ink);
+    cursor: pointer; outline: none;
+}
+
+.container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .2s, box-shadow .2s;
+    animation: entrar .35s ease both;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(181, 18, 27, .15); }
+.card.destaque { border-color: var(--red-hi); }
+
+.img-wrapper {
+    position: relative; height: 158px;
+    background: linear-gradient(180deg, var(--foto-1), var(--foto-2));
+    display: grid; place-items: center; overflow: hidden;
+}
+.img-wrapper img { max-width: 80%; max-height: 90%; object-fit: contain; }
+
+.badge {
+    position: absolute; top: 10px; left: 10px;
+    background: #fff; color: var(--red);
+    font-size: 8px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .4px;
+    padding: 4px 8px; border-radius: 999px;
+}
+
+.info { padding: 12px 14px 14px; }
+.meta { font-size: 9px; text-transform: uppercase; color: var(--muted); letter-spacing: .3px; }
+.info h2 { font-size: 17px; margin: 5px 0 12px; }
+.rodape { display: flex; justify-content: space-between; align-items: center; }
+.preco { font-size: 14px; font-weight: 700; }
+
+.card .btn { padding: 9px 16px; font-size: 11px; font-weight: 500; }
+.card .btn span { margin-left: 4px; }
+.card.destaque .btn { background: var(--red-dark); }
+
+.vazio {
+    grid-column: 1 / -1; text-align: center;
+    background: var(--card); border: 1px dashed var(--line);
+    border-radius: var(--radius); padding: 48px 20px;
+}
+.vazio h3 { font-size: 22px; margin-bottom: 6px; }
+.vazio p { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+
+/* ===== GAVETA DO CARRINHO ===== */
+.overlay {
+    position: fixed; inset: 0;
+    background: var(--veu);
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s; z-index: 90;
+}
+.overlay.aberta { opacity: 1; pointer-events: auto; }
+
+.gaveta {
+    position: fixed; top: 0; right: 0;
+    width: min(380px, 100%); height: 100%;
+    background: var(--surface);
+    display: flex; flex-direction: column;
+    transform: translateX(100%); transition: transform .3s ease;
+    z-index: 100; box-shadow: -8px 0 30px rgba(0, 0, 0, .15);
+}
+.gaveta.aberta { transform: translateX(0); }
+
+.gaveta-topo {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 20px; border-bottom: 1px solid var(--line);
+}
+.gaveta-topo h2 { font-size: 22px; }
+.fechar, .remover {
+    background: none; border: none;
+    font-size: 24px; line-height: 1; color: var(--muted);
+}
+.fechar:hover, .remover:hover { color: var(--red-hi); }
+
+.gaveta-itens { flex: 1; overflow-y: auto; padding: 14px 20px; }
+.carrinho-vazio { text-align: center; color: var(--muted); font-size: 13px; margin-top: 40px; }
+
+.item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.item img { width: 64px; height: 64px; object-fit: contain; background: var(--foto-1); border-radius: 10px; padding: 4px; }
+.item-info { flex: 1; display: flex; flex-direction: column; gap: 3px; font-size: 12px; }
+.item-info strong { font-family: var(--font-title); font-weight: 400; font-size: 15px; }
+.item-info span { color: var(--muted); }
+
+.qtd { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.qtd button {
+    width: 24px; height: 24px; border-radius: 50%;
+    border: 1px solid var(--line); background: var(--card);
+    color: var(--red-hi); font-size: 14px;
+}
+.qtd button:hover { background: var(--red); color: #fff; }
+
+.gaveta-rodape { padding: 16px 20px 20px; border-top: 1px solid var(--line); }
+.total { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; font-size: 13px; }
+.total strong { font-family: var(--font-title); font-weight: 400; font-size: 24px; }
+.gaveta-rodape .btn { width: 100%; padding: 12px; font-size: 13px; }
+.link-limpar {
+    display: block; margin: 12px auto 0;
+    background: none; border: none;
+    font-size: 11px; color: var(--muted); text-decoration: underline;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .filtro { position: static; }
+    .container { grid-template-columns: repeat(2, 1fr); }
+    .hero { flex-direction: column; align-items: flex-start; }
+    .hero-meta { text-align: left; }
+}
+@media (max-width: 560px) {
+    .container { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 36px; }
+}

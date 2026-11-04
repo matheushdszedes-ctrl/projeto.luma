@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guitar – Favoritos e comparador</title>
+    <script src="../js/tema.js"></script>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/favoritos.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/Gemini_Generated_Image_kw99mhkw99mhkw99-removebg-preview.png" alt="Lions Guitarrs" class="logo-img">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="NossasCustomizacoes.html">Galeria</a></li>
+                <li><a href="loja.html">Produtos</a></li>
+                <li><a href="texte.html">Custom</a></li>
+                <li><a href="favoritos.html" class="active">Favoritos <span id="fav-badge" class="cart-badge">0</span></a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html">Carrinho <span id="cart-badge" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="cabecalho-pagina">
+            <span class="eyebrow">Sua lista</span>
+            <h1>Favoritos e comparador</h1>
+            <p>Guarde guitarras personalizadas e produtos de que você gostou e compare as diferenças de preço, componentes e características.</p>
+        </section>
+
+        <div class="filtros-chips" id="chipsFav" role="group" aria-label="Filtrar favoritos"></div>
+
+        <section class="fav-grade" id="listaFav" aria-live="polite"></section>
+
+        <section class="comparador" id="comparador" aria-label="Comparador de modelos" hidden></section>
+
+    </main>
+
+    <script src="../js/comum.js"></script>
+    <script src="../js/produtos.js"></script>
+    <script src="../js/pecas.js"></script>
+    <script src="../js/guitarra.js"></script>
+    <script src="../js/projetos.js"></script>
+    <script src="../js/favoritos.js"></script>
+</body>
+</html>

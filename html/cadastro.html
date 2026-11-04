@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guitar – Cadastro</title>
+    <script src="../js/tema.js"></script>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/Gemini_Generated_Image_kw99mhkw99mhkw99-removebg-preview.png" alt="Lions Guitarrs" class="logo-img">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="NossasCustomizacoes.html">Galeria</a></li>
+                <li><a href="loja.html">Produtos</a></li>
+                <li><a href="texte.html">Custom</a></li>
+                <li><a href="favoritos.html">Favoritos <span id="fav-badge" class="cart-badge">0</span></a></li>
+                <li><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html">Carrinho <span id="cart-badge" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="auth-pagina">
+
+        <aside class="auth-lateral">
+            <span class="eyebrow">Bem-vindo</span>
+            <h1>Crie a sua conta.</h1>
+            <p>Salve suas customizações, acompanhe pedidos e compre mais rápido.</p>
+            <ul class="auth-lista">
+                <li>Customizações salvas na sua conta</li>
+                <li>Acompanhe seus pedidos</li>
+                <li>Ofertas exclusivas para membros</li>
+            </ul>
+        </aside>
+
+        <section class="auth-caixa">
+            <h2>Cadastro</h2>
+            <p>Preencha seus dados para começar.</p>
+
+            <div class="form-aviso" id="form-aviso" role="alert"></div>
+
+            <form class="auth-form" id="form-cadastro" novalidate>
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="given-name">
+                        <span class="campo-msg"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" autocomplete="family-name">
+                        <span class="campo-msg"></span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="voce@email.com" autocomplete="email">
+                    <span class="campo-msg"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <div class="campo-senha">
+                        <input type="password" id="senha" name="senha" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+                        <button type="button" class="ver-senha" aria-label="Mostrar senha">Ver</button>
+                    </div>
+                    <span class="campo-msg"></span>
+                </div>
+
+                <div class="forca-senha">
+                    <div class="barra"><span data-nivel="0"></span></div>
+                    <small>Use letras, números e símbolos</small>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar">Confirmar senha</label>
+                    <input type="password" id="confirmar" name="confirmar" placeholder="Repita a senha" autocomplete="new-password">
+                    <span class="campo-msg"></span>
+                </div>
+
+                <div class="check-termos">
+                    <label>
+                        <input type="checkbox" id="termos">
+                        <span>Li e aceito os <a href="#">termos de uso</a> e a <a href="#">política de privacidade</a>.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn">Criar conta</button>
+            </form>
+
+            <p class="auth-troca">Já tem conta? <a href="login.html">Entrar</a></p>
+        </section>
+
+    </main>
+
+    <script src="../js/comum.js"></script>
+    <script src="../js/cadastro.js"></script>
+</body>
+</html>

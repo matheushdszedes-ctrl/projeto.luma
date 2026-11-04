@@ -1,0 +1,94 @@
+/* ==========================================================
+   CUSTOMIZAÇÕES (NossasCustomizacoes.html) – css/customizacoes.css
+   Galeria das guitarras customizadas já feitas.
+   Estrutura esperada no html:
+   .cabecalho-pagina (.eyebrow, h1, p)
+   .filtros-chips > button.chip (.ativo)
+   .galeria > .item-custom (.img-wrapper img, .item-custom-info h3/p, .tags > span, .rodape)
+   ========================================================== */
+
+/* ===== GALERIA ===== */
+.galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+.item-custom {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+    animation: entrar .4s ease both;
+}
+.item-custom:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(181, 18, 27, .18); }
+
+.item-custom .img-wrapper {
+    height: 230px;
+    background: linear-gradient(180deg, var(--foto-1), var(--foto-2));
+    display: grid; place-items: center;
+    overflow: hidden;
+}
+.item-custom .img-wrapper svg { width: 100%; height: 100%; padding: 10px; transition: transform .35s; }
+.item-custom:hover .img-wrapper svg { transform: scale(1.04); }
+.item-custom .img-wrapper { position: relative; }
+.item-custom .img-wrapper img {
+    max-width: 78%; max-height: 90%; object-fit: contain;
+    transition: transform .35s;
+}
+.item-custom:hover .img-wrapper img { transform: scale(1.07) rotate(-3deg); }
+
+.item-custom-info { padding: 16px 18px 18px; }
+.item-custom-info h3 { font-size: 21px; margin-bottom: 4px; }
+.item-custom-info p { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.tags span {
+    font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .4px;
+    color: var(--red-hi);
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 3px 9px;
+}
+
+.item-custom .rodape { display: flex; justify-content: space-between; align-items: center; }
+.item-custom .preco { font-size: 16px; font-weight: 700; }
+
+/* ===== CHAMADA PARA CRIAR A SUA ===== */
+.cta-custom {
+    margin-top: 48px;
+    background: var(--red); color: #fff;
+    border-radius: 22px;
+    padding: 40px 28px;
+    text-align: center;
+}
+.cta-custom h2 { font-size: 32px; margin-bottom: 8px; }
+.cta-custom p { font-size: 13px; opacity: .9; margin-bottom: 20px; }
+.cta-custom .btn { background: #fff; color: #7a0c12; padding: 12px 26px; }
+
+/* ===== SEM RESULTADOS ===== */
+.galeria-vazia {
+    grid-column: 1 / -1; text-align: center;
+    padding: 48px 20px; color: var(--muted); font-size: 13px;
+    border: 1px dashed var(--line); border-radius: var(--radius); background: var(--card);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) { .galeria { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+    .galeria { grid-template-columns: 1fr; }
+    .cabecalho-pagina h1 { font-size: 36px; }
+}
+
+/* ===== FASE 2: selos, avisos, ações, publicar ===== */
+.faixa-info { border: 1px solid var(--aviso-borda); background: var(--aviso-bg); color: var(--aviso-ink); border-radius: 14px; padding: 12px 16px; font-size: 12px; line-height: 1.55; margin-bottom: 22px; }
+.faixa-info strong { color: var(--aviso-strong); }
+.selo { position: absolute; left: 10px; top: 10px; z-index: 1; font-size: 8px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--gold); background: var(--chip-overlay); border: 1px solid var(--aviso-borda); border-radius: 999px; padding: 4px 8px; }
+.selo.meu { color: var(--ok); border-color: var(--ok-borda); }
+.item-custom .autor { font-size: 11px !important; margin-bottom: 8px !important; }
+.item-custom .preco small { display: block; font-size: 9px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .3px; }
+.item-custom .acoes { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.item-custom .acoes .btn { flex: 1 1 auto; padding: 9px 12px; font-size: 11px; text-align: center; }
+.galeria-vazia .btn { margin-top: 14px; }
+.publicar-box { margin-top: 36px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: var(--surface); border: 1px dashed var(--line-2); border-radius: 18px; padding: 20px 22px; }
+.publicar-box h2 { font-size: 22px; margin-bottom: 4px; }
+.publicar-box p { font-size: 12px; color: var(--muted); max-width: 560px; line-height: 1.5; }
+.publicar-box .btn[disabled] { opacity: .45; cursor: not-allowed; }

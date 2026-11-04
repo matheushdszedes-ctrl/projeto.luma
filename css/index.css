@@ -1,0 +1,120 @@
+/* ==========================================================
+   INDEX (Home) – css/index.css
+   Estrutura esperada no html:
+   .banner > .banner-texto (.eyebrow, h1, p, .banner-botoes) + .banner-img
+   .destaques > .grade-destaques > .card (.img-wrapper, .info)
+   .beneficios > .beneficio (i, h3, p)
+   .chamada (faixa final com botão)
+   ========================================================== */
+
+/* ===== BANNER ===== */
+.banner {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 32px;
+    margin: 20px 0 48px;
+}
+
+.banner h1 { font-size: 56px; line-height: 1.02; margin: 12px 0 16px; }
+.banner p { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 440px; }
+.banner-botoes { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.banner-botoes .btn { padding: 13px 26px; font-size: 13px; }
+
+.banner-img {
+    background: linear-gradient(180deg, var(--foto-1), var(--foto-2));
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    min-height: 340px;
+    display: grid; place-items: center;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+.banner-img img { max-height: 320px; object-fit: contain; transform: rotate(-8deg); transition: transform .4s; }
+.banner-img:hover img { transform: rotate(-3deg) scale(1.04); }
+
+/* ===== TÍTULO DE SEÇÃO ===== */
+.secao-titulo {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 18px;
+}
+.secao-titulo h2 { font-size: 30px; }
+.secao-titulo a { font-size: 12px; font-weight: 600; color: var(--red-hi); text-decoration: underline; }
+
+/* ===== DESTAQUES ===== */
+.grade-destaques { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 56px; }
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .2s, box-shadow .2s;
+    animation: entrar .35s ease both;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(181, 18, 27, .15); }
+
+.img-wrapper {
+    position: relative;
+    height: 180px;
+    background: linear-gradient(180deg, var(--foto-1), var(--foto-2));
+    display: grid; place-items: center;
+    overflow: hidden;
+}
+.img-wrapper img { max-width: 80%; max-height: 90%; object-fit: contain; }
+
+.badge {
+    position: absolute; top: 10px; left: 10px;
+    background: #fff; color: var(--red);
+    font-size: 8px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .4px;
+    padding: 4px 8px; border-radius: 999px;
+}
+
+.info { padding: 14px 16px 16px; }
+.info h3 { font-size: 19px; margin-bottom: 4px; }
+.descricao { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+.rodape { display: flex; justify-content: space-between; align-items: center; }
+.preco { font-size: 15px; font-weight: 700; }
+
+/* ===== BENEFÍCIOS ===== */
+.beneficios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 56px; }
+
+.beneficio {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+}
+.beneficio i { font-size: 24px; color: var(--red-hi); margin-bottom: 12px; }
+.beneficio h3 { font-size: 18px; margin-bottom: 6px; }
+.beneficio p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ===== CHAMADA FINAL ===== */
+.chamada {
+    background: var(--red);
+    color: #fff;
+    border-radius: 22px;
+    padding: 44px 32px;
+    text-align: center;
+}
+.chamada h2 { font-size: 34px; margin-bottom: 10px; }
+.chamada p { font-size: 13px; opacity: .9; margin-bottom: 22px; }
+.chamada .btn { background: #fff; color: var(--red); padding: 13px 28px; }
+.chamada .btn:hover { background: var(--bg); }
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+    .banner { grid-template-columns: 1fr; }
+    .banner h1 { font-size: 44px; }
+    .grade-destaques, .beneficios { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .banner h1 { font-size: 36px; }
+    .grade-destaques, .beneficios { grid-template-columns: 1fr; }
+    .banner-img { min-height: 240px; }
+}
+
+.meta { font-size: 9px; text-transform: uppercase; color: var(--muted); letter-spacing: .3px; }

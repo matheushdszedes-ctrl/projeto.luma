@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho de Compras</title>
+    <script src="../js/tema.js"></script>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/carrinho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/Gemini_Generated_Image_kw99mhkw99mhkw99-removebg-preview.png" alt="Lions Guitarrs" class="logo-img">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="NossasCustomizacoes.html">Galeria</a></li>
+                <li><a href="loja.html">Produtos</a></li>
+                <li><a href="texte.html">Custom</a></li>
+                <li><a href="favoritos.html">Favoritos <span id="fav-badge" class="cart-badge">0</span></a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html" class="active">Carrinho <span id="cart-badge" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="carrinho-container">
+
+        <section class="carrinho-produtos" aria-label="Itens do carrinho">
+            <div class="carrinho-topo">
+                <h2>Carrinho de Compras</h2>
+                <button type="button" id="btn-esvaziar" class="link-esvaziar">Esvaziar carrinho</button>
+            </div>
+
+            <div id="lista-produtos"></div>
+        </section>
+
+        <aside class="carrinho-resumo" aria-label="Resumo do pedido">
+            <h2>Resumo do Pedido</h2>
+
+            <div class="resumo-linha">
+                <span id="resumo-subtotal-label">Subtotal (0 itens)</span>
+                <span id="resumo-subtotal">R$ 0</span>
+            </div>
+
+            <div class="resumo-linha desconto" id="linha-desconto" hidden>
+                <span id="resumo-desconto-label">Desconto</span>
+                <span id="resumo-desconto">− R$ 0</span>
+            </div>
+
+            <div class="resumo-linha">
+                <span>Frete</span>
+                <span id="resumo-frete" class="frete-gratis">Grátis</span>
+            </div>
+
+            <div class="cupom-secao">
+                <input type="text" id="cupom-input" placeholder="Cupom de desconto" autocomplete="off" maxlength="20">
+                <button type="button" class="btn-aplicar" id="btn-cupom">Aplicar</button>
+            </div>
+            <p class="cupom-msg" id="cupom-msg" aria-live="polite"></p>
+            <div class="cupom-ativo" id="cupom-ativo" hidden></div>
+
+            <hr>
+
+            <div class="resumo-linha total">
+                <span>Total</span>
+                <span id="resumo-total">R$ 0</span>
+            </div>
+
+            <button type="button" class="btn-finalizar" id="btn-finalizar">Finalizar Compra</button>
+            <a href="loja.html" class="continuar-comprando">Continuar Comprando</a>
+        </aside>
+
+    </main>
+
+    <!-- modal de confirmação / sucesso -->
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal-caixa" id="modal-caixa" role="dialog" aria-modal="true"></div>
+    </div>
+    <script src="../js/comum.js"></script>
+    <script src="../js/carrinho.js"></script>
+</body>
+</html>

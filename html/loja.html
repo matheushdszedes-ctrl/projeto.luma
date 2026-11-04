@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guitar – Produtos</title>
+    <script src="../js/tema.js"></script>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/loja.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/Gemini_Generated_Image_kw99mhkw99mhkw99-removebg-preview.png" alt="Lions Guitarrs" class="logo-img">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="NossasCustomizacoes.html">Galeria</a></li>
+                <li><a href="loja.html" class="active">Produtos</a></li>
+                <li><a href="texte.html">Custom</a></li>
+                <li><a href="favoritos.html">Favoritos <span id="fav-badge" class="cart-badge">0</span></a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="carrinho.html" id="abrirCarrinho">Carrinho <span id="cartCount" class="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="hero">
+            <div class="hero-text">
+                <span class="eyebrow">Coleção 2026</span>
+                <h1>Instrumentos que permanecem.</h1>
+                <p>Uma seleção de cordas escolhida pela sonoridade, matéria e presença.
+                   Encontre o instrumento que traduz o seu gesto.</p>
+            </div>
+            <p class="hero-meta">42 instrumentos · Envio<br>assegurado para todo o Brasil</p>
+        </section>
+
+        <div class="layout">
+
+            <!-- FILTRO -->
+            <aside class="filtro">
+                <div class="topo">
+                    <h2>Filtrar</h2>
+                    <button id="limpar" type="button">Limpar</button>
+                </div>
+
+                <div class="grupo">
+                    <h3>Tipo de instrumento</h3>
+                    <button type="button" class="todos" data-grupo="0">Todos</button>
+                    <label><input type="checkbox" value="Violão" checked> Violão</label>
+                    <label><input type="checkbox" value="Guitarra" checked> Guitarra</label>
+                    <label><input type="checkbox" value="Violino"> Violino</label>
+                    <label><input type="checkbox" value="Baixo"> Baixo</label>
+                    <label><input type="checkbox" value="Ukulele"> Ukulele</label>
+                    <label><input type="checkbox" value="Banjo"> Banjo</label>
+                    <label><input type="checkbox" value="Harpa"> Harpa</label>
+                    <label><input type="checkbox" value="Cavaquinho"> Cavaquinho</label>
+                </div>
+
+                <div class="grupo">
+                    <h3>Material das cordas</h3>
+                    <button type="button" class="todos" data-grupo="1">Todos</button>
+                    <label><input type="checkbox" value="Aço" checked> Aço</label>
+                    <label><input type="checkbox" value="Nylon"> Nylon</label>
+                    <label><input type="checkbox" value="Bronze fosfatado"> Bronze fosfatado</label>
+                </div>
+
+                <div class="grupo">
+                    <h3>Palhetas</h3>
+                    <button type="button" class="todos" data-grupo="2">Todos</button>
+                    <label><input type="checkbox" value="Celuloide"> Celuloide</label>
+                    <label><input type="checkbox" value="Nylon"> Nylon</label>
+                    <label><input type="checkbox" value="Feltro"> Feltro</label>
+                </div>
+
+                <div class="grupo">
+                    <h3>Faixa de preço</h3>
+                    <div class="precos">
+                        <input type="number" id="minimo" placeholder="R$ 500" min="0">
+                        <input type="number" id="maximo" placeholder="R$ 8.000" min="0">
+                    </div>
+                    <input type="range" id="precoRange" min="0" max="8000" value="500">
+                </div>
+
+                <button id="aplicar" type="button">Aplicar filtros</button>
+                <p id="resultado"></p>
+            </aside>
+
+            <!-- PRODUTOS (o script.js monta os cards a partir da lista de produtos) -->
+            <section class="produtos">
+                <div class="produtos-topo">
+                    <span class="contagem" id="contagem">6 peças encontradas</span>
+                    <label class="ordenar">Ordenar:
+                        <select id="ordenar">
+                            <option value="curadoria">Curadoria</option>
+                            <option value="menor">Menor preço</option>
+                            <option value="maior">Maior preço</option>
+                            <option value="nome">Nome (A–Z)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="container">
+                    <div class="card destaque">
+                        <div class="img-wrapper">
+                            <span class="badge">Mais desejado</span>
+                            <img src="../img/WarlockGuitar.png" alt="Warlock">
+                        </div>
+                        <div class="info">
+                            <span class="meta">Elétrica · Alder</span>
+                            <h2>Warlock</h2>
+                            <div class="rodape">
+                                <p class="preco">R$ 15.000</p>
+                                <button class="btn" type="button">Adicionar <span>+</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <img src="../img/LesPaulSlash.png" alt="Les Paul">
+                        </div>
+                        <div class="info">
+                            <span class="meta">Elétrica · Mogno</span>
+                            <h2>Les Paul</h2>
+                            <div class="rodape">
+                                <p class="preco">R$ 22.000</p>
+                                <button class="btn" type="button">Adicionar <span>+</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <img src="../img/FlynigVBlack.png" alt="Flying V">
+                        </div>
+                        <div class="info">
+                            <span class="meta">Elétrica · Ash</span>
+                            <h2>Flying V</h2>
+                            <div class="rodape">
+                                <p class="preco">R$ 18.500</p>
+                                <button class="btn" type="button">Adicionar <span>+</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <span class="badge">Edição limitada</span>
+                            <img src="../img/WarlockGuitar.png" alt="Warlock">
+                        </div>
+                        <div class="info">
+                            <span class="meta">Elétrica · Alder</span>
+                            <h2>Warlock</h2>
+                            <div class="rodape">
+                                <p class="preco">R$ 15.000</p>
+                                <button class="btn" type="button">Adicionar <span>+</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <img src="../img/LesPaulSlash.png" alt="Les Paul">
+                        </div>
+                        <div class="info">
+                            <span class="meta">Elétrica · Mogno</span>
+                            <h2>Les Paul</h2>
+                            <div class="rodape">
+                                <p class="preco">R$ 22.000</p>
+                                <button class="btn" type="button">Adicionar <span>+</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="img-wrapper">
+                            <img src="../img/FlynigVBlack.png" alt="Flying V">
+                        </div>
+                        <div class="info">
+                            <span class="meta">Elétrica · Ash</span>
+                            <h2>Flying V</h2>
+                            <div class="rodape">
+                                <p class="preco">R$ 18.500</p>
+                                <button class="btn" type="button">Adicionar <span>+</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="../js/comum.js"></script>
+    <script src="../js/produtos.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
